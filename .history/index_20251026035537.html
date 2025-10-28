@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MONITOR 2K25 - Talina Nurul Azizah</title>
+  <meta name="description" content="MONITOR 2K25 - Materi MABIM & SAKTI Informatika"/>
+  <meta name="keywords" content="MONITOR, MABIM, Informatika, SAKTI"/>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+
+  <!-- Custom Styling -->
+  <style>
+    body { font-family: 'Poppins', sans-serif; color:#222; }
+    .hero { background: linear-gradient(135deg,#003566 0%, #0b61d3 100%); color:#fff; padding:80px 0; text-align:center;}
+    .hero h1 { font-weight:700; font-size:40px; margin-bottom:8px;}
+    .hero p { color:#ffd60a; font-weight:600; margin-bottom:18px; }
+    .btn-monitor { background-color:#0b61d3; color:#fff; border:none; }
+    .btn-monitor:hover { background-color:#003566; color:#fff; }
+    .section-title h2 { color:#0b61d3; font-weight:700; }
+    .about { background:#f7f9fb; padding:60px 0; }
+    .content { color:#333; }
+    .mabim-section { padding:50px 0; background:#fff; }
+    .mabim-section .card { border-radius:8px; border:1px solid #e6eefc; box-shadow:0 2px 6px rgba(3,27,76,0.03); }
+    .materi-content { display:none; padding:18px; background:#fbfdff; border-left:4px solid #0b61d3; margin-top:12px; white-space:pre-wrap; }
+    footer { background:#001d3d; color:#fff; padding:36px 0; text-align:center; }
+    .navicon { margin-right:8px; }
+    .info-item i { font-size:22px; color:#0b61d3; margin-right:10px; }
+    @media (max-width:576px) { .hero h1 { font-size:28px; } .hero { padding:50px 0; } }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header d-flex flex-column justify-content-center">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+    <nav id="navmenu" class="navmenu">
+      <ul style="list-style:none; padding:0; margin:12px 0; display:flex; gap:12px; justify-content:center;">
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+        <li><a href="#about"><i class="bi bi-info-circle navicon"></i><span>About</span></a></li>
+        <li><a href="#mabim1"><i class="bi bi-journal-text navicon"></i><span>MABIM 1</span></a></li>
+        <li><a href="#mabim2"><i class="bi bi-journal-text navicon"></i><span>MABIM 2</span></a></li>
+        <li><a href="#mabim3"><i class="bi bi-journal-text navicon"></i><span>MABIM 3</span></a></li>
+        <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background">
+      <div class="container">
+        <h1>Talina Nurul Azizah</h1>
+        <p>Mahasiswa Teknik Informatika '25</p>
+        <button class="btn btn-monitor btn-lg" onclick="tampilkanPesan('Selamat datang di MONITOR 2K25!','hero')">Next</button>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <div class="container section-title text-center">
+        <h2>MONITOR 2K25</h2>
+        <p>MONITOR 2025 (Masa Orientasi Teknik Informatika) diselenggarakan oleh HIMATIF sebagai ajang penyambutan mahasiswa baru, memperkenalkan akademik, organisasi, dan budaya positif berlandaskan nilai SAKTI.</p>
+      </div>
+
+      <div class="container text-center">
+        <div class="btn-group flex-wrap" role="group" aria-label="Nilai SAKTI" style="gap:10px;">
+          <button class="btn btn-monitor" onclick="showSakti('solid')">Solid</button>
+          <button class="btn btn-monitor" onclick="showSakti('aktif')">Aktif</button>
+          <button class="btn btn-monitor" onclick="showSakti('kreatif')">Kreatif</button>
+          <button class="btn btn-monitor" onclick="showSakti('transformatif')">Transformatif</button>
+          <button class="btn btn-monitor" onclick="showSakti('islami')">Islami</button>
+        </div>
+
+        <div id="sakti-content" class="mt-4 p-4 rounded shadow-sm bg-white" style="border-left:4px solid #0b61d3; display:none; text-align:left; max-width:800px; margin:auto; white-space:pre-wrap;"></div>
+      </div>
+    </section>
+
+    <!-- MABIM Sections -->
+    <section id="mabim1" class="mabim-section">
+      <div class="container section-title text-center">
+        <h2>MABIM 1</h2>
+        <p>Sabtu, 20 September 2025 — Rangkaian materi dan diskusi.</p>
+      </div>
+      <div class="container">
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi 1: Wahyu Memandu Ilmu</h5>
+              <p class="mb-2"><strong>Moderator:</strong> Kang Hanif<br><strong>Pemateri:</strong> Cepy Slamet</p>
+              <button class="btn btn-monitor" onclick="openMateri('m1-1','Wahyu Memandu Ilmu')">Buka Materi 1</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi 2: Pengantar Logika</h5>
+              <p class="mb-2"><strong>Moderator:</strong> Akhdan<br><strong>Pemateri:</strong> Kang Diaz Muhammad</p>
+              <button class="btn btn-monitor" onclick="openMateri('m1-2','Pengantar Logika')">Buka Materi 2</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi 3: Keinformatikaan</h5>
+              <p class="mb-2"><strong>Moderator:</strong> Kang Faraby<br><strong>Pemateri:</strong> M. Fatih Maulana</p>
+              <button class="btn btn-monitor" onclick="openMateri('m1-3','Keinformatikaan')">Buka Materi 3</button>
+            </div>
+          </div>
+        </div>
+        <!-- Materi Content Hidden -->
+        <div id="m1-1" class="materi-content">...</div>
+        <div id="m1-2" class="materi-content">...</div>
+        <div id="m1-3" class="materi-content">...</div>
+      </div>
+    </section>
+
+    <section id="mabim2" class="mabim-section" style="background:#f5fbff;">
+      <div class="container section-title text-center">
+        <h2>MABIM 2</h2>
+        <p>Sabtu, 27 September 2025 — Lanjutan materi dan advokasi.</p>
+      </div>
+      <div class="container">
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h5>Materi 1: Alur dan Advokasi</h5>
+              <p class="mb-2"><strong>Moderator:</strong> Zaki Syabani Gibran<br><strong>Pemateri:</strong> Ansyarullah</p>
+              <button class="btn btn-monitor" onclick="openMateri('m2-1','Alur dan Advokasi')">Buka Materi 1</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h5>Materi 2: Manajemen Waktu</h5>
+              <p class="mb-2"><strong>Moderator:</strong> Salwa<br><strong>Pemateri:</strong> Dr. Imam Sapari Millah</p>
+              <button class="btn btn-monitor" onclick="openMateri('m2-2','Manajemen Waktu')">Buka Materi 2</button>
+            </div>
+          </div>
+        </div>
+        <div id="m2-1" class="materi-content">...</div>
+        <div id="m2-2" class="materi-content">...</div>
+      </div>
+    </section>
+
+    <section id="mabim3" class="mabim-section">
+      <div class="container section-title text-center">
+        <h2>MABIM 3</h2>
+        <p>Sabtu, 4 Oktober 2025 — Komunikasi, kepemimpinan, dan CRAWL.</p>
+      </div>
+      <div class="container">
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi: Retorika dan Komunikasi</h5>
+              <p class="mb-2"><strong>Pemateri:</strong> Mahran Rangga Basyus</p>
+              <button class="btn btn-monitor" onclick="openMateri('m3-1','Retorika dan Komunikasi')">Buka Materi</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi: KMO (Kepemimpinan Manajemen Organisasi)</h5>
+              <p class="mb-2"><strong>Pemateri:</strong> Faizal Ramadhan, S.T</p>
+              <button class="btn btn-monitor" onclick="openMateri('m3-2','KMO (Kepemimpinan Manajemen Organisasi)')">Buka Materi</button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi 4: CRAWL</h5>
+              <p class="mb-2"><strong>Pemateri:</strong> Kang Aris Ghifari dkk</p>
+              <button class="btn btn-monitor" onclick="openMateri('m3-3','CRAWL (Sayap Kiri Informatika)')">Buka Materi</button>
+            </div>
+          </div>
+        </div>
+        <div id="m3-1" class="materi-content">...</div>
+        <div id="m3-2" class="materi-content">...</div>
+        <div id="m3-3" class="materi-content">...</div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="skills section">
+      <div class="container section-title">
+        <h2>Skills</h2>
+        <p>Kemampuan yang dikembangkan selama proses pembelajaran dan pengalaman.</p>
+      </div>
+      <div class="container">
+        <div class="skills-content">
+          <div class="progress">
+            <span class="skill">HTML <i class="val">100%</i></span>
+            <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" style="width: 100%;"></div></div>
+          </div>
+          <div class="progress">
+            <span class="skill">CSS <i class="val">90%</i></span>
+            <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" style="width: 90%;"></div></div>
+          </div>
+          <div class="progress">
+            <span class="skill">JavaScript <i class="val">75%</i></span>
+            <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" style="width: 75%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container section-title">
+        <h2>Contact</h2>
+        <p>Hubungi kami untuk informasi lebih lanjut atau kerjasama.</p>
+      </div>
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4">
+            <div class="info-item d-flex">
+              <i class="bi bi-geo-alt"></i>
+              <div>
+                <h3>Alamat</h3>
+                <p>Universitas Teknik Informatika</p>
+              </div>
+            </div>
+            <div class="info-item d-flex mt-3">
+              <i class="bi bi-telephone"></i>
+              <div>
+                <h3>Telepon</h3>
+                <p>+62 815-2700-1761</p>
+              </div>
+            </div>
+            <div class="info-item d-flex mt-3">
+              <i class="bi bi-envelope"></i>
+              <div>
+                <h3>Email</h3>
+                <p>talinaazizah@example.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <form action="#" method="post" class="php-email-form">
+              <div class="row gy-4">
+                <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Your Name" required></div>
+                <div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Your Email" required></div>
+                <div class="col-md-12"><input type="text" name="subject" class="form-control" placeholder="Subject" required></div>
+                <div class="col-md-12"><textarea name="message" rows="6" class="form-control" placeholder="Message" required></textarea></div>
+                <div class="col-md-12 text-center"><button type="submit" class="btn btn-monitor">Send Message</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container text-center">
+      <h3>Talina Nurul Azizah</h3>
+      <p>Mahasiswa Teknik Informatika '25 | MONITOR 2K25</p>
+      <div class="social-links d-flex justify-content-center mt-3 gap-3">
+        <a href="#" style="color:#ffd60a;"><i class="bi bi-instagram"></i></a>
+        <a href="#" style="color:#ffd60a;"><i class="bi bi-envelope"></i></a>
+        <a href="#" style="color:#ffd60a;"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="copyright mt-3">&copy; 2025 MONITOR 2K25. All Rights Reserved</div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    // Initialize AOS
+    if (window.AOS) AOS.init();
+
+    // Hero & Materi Scripts
+    function tampilkanPesan(msg, targetId) {
+      alert(msg);
+      const el = document.getElementById(targetId);
+      if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    function openMateri(id, title) {
+      alert('Membuka Materi: ' + title);
+      const el = document.getElementById(id);
+      if (

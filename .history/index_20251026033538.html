@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MONITOR 2K25 - Talina Nurul Azizah</title>
+  <meta name="description" content="MONITOR 2K25 - Materi MABIM & SAKTI Informatika"/>
+  <meta name="keywords" content="MONITOR, MABIM, Informatika, SAKTI"/>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+
+  <!-- Minimal custom styling so theme biru konsisten -->
+  <style>
+    body { font-family: 'Poppins', sans-serif; color:#222; }
+    .hero { background: linear-gradient(135deg,#003566 0%, #0b61d3 100%); color:#fff; padding:80px 0; text-align:center;}
+    .hero h1 { font-weight:700; font-size:40px; margin-bottom:8px;}
+    .hero p { color:#ffd60a; font-weight:600; margin-bottom:18px; }
+    .btn-monitor { background-color:#0b61d3; color:#fff; border:none; }
+    .btn-monitor:hover { background-color:#003566; color:#fff; }
+    .section-title h2 { color:#0b61d3; font-weight:700; }
+    .about { background:#f7f9fb; padding:60px 0; }
+    .content { color:#333; }
+    .mabim-section { padding:50px 0; background:#fff; }
+    .mabim-section .card { border-radius:8px; border:1px solid #e6eefc; box-shadow:0 2px 6px rgba(3,27,76,0.03); }
+    .materi-content { display:none; padding:18px; background:#fbfdff; border-left:4px solid #0b61d3; margin-top:12px; white-space:pre-wrap; }
+    footer { background:#001d3d; color:#fff; padding:36px 0; text-align:center; }
+    .navicon { margin-right:8px; }
+    .info-item i { font-size:22px; color:#0b61d3; margin-right:10px; }
+    /* responsive minor */
+    @media (max-width:576px) { .hero h1 { font-size:28px; } .hero { padding:50px 0; } }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header" class="header d-flex flex-column justify-content-center">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+    <nav id="navmenu" class="navmenu">
+      <ul style="list-style:none; padding:0; margin:12px 0; display:flex; gap:12px; justify-content:center;">
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+        <li><a href="#about"><i class="bi bi-info-circle navicon"></i><span>About</span></a></li>
+        <li><a href="#mabim1"><i class="bi bi-journal-text navicon"></i><span>MABIM 1</span></a></li>
+        <li><a href="#mabim2"><i class="bi bi-journal-text navicon"></i><span>MABIM 2</span></a></li>
+        <li><a href="#mabim3"><i class="bi bi-journal-text navicon"></i><span>MABIM 3</span></a></li>
+        <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero (edited) -->
+    <section id="hero" class="hero section light-background">
+      <div class="container">
+        <h1>Talina Nurul Azizah</h1>
+        <p>Mahasiswa Teknik Informatika '25</p>
+        <button class="btn btn-monitor btn-lg" onclick="tampilkanPesan('Selamat datang di MONITOR 2K25!','hero')">Next</button>
+      </div>
+    </section>
+
+    <script>
+      function tampilkanPesan(msg, targetId) {
+        alert(msg);
+        if (targetId) {
+          // navigate to section if provided
+          const el = document.getElementById(targetId);
+          if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      }
+
+      function openMateri(id, title) {
+        // show alert first with material title, then reveal content
+        alert('Membuka Materi: ' + title);
+        const el = document.getElementById(id);
+        if (el) {
+          // toggle visibility
+          if (el.style.display === 'block') {
+            // already open -> scroll to it
+            el.scrollIntoView({behavior:'smooth', block:'start'});
+          } else {
+            el.style.display = 'block';
+            el.scrollIntoView({behavior:'smooth', block:'start'});
+          }
+        }
+      }
+    </script>
+
+    <!-- About (edited) -->
+    <section id="about" class="about section">
+      <div class="container section-title text-center" data-aos="fade-up">
+        <h2>MONITOR 2K25</h2>
+        <p>MONITOR (Masa Orientasi Teknik Informatika) merupakan kegiatan tahunan yang diselenggarakan oleh HIMATIF untuk menyambut mahasiswa baru, memperkenalkan lingkungan akademik, organisasi, serta nilai SAKTI: Solid, Aktif, Kreatif, Transformatif, dan Islami.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4 align-items-center">
+          <div class="col-lg-4 text-center">
+            <img src="assets/img/LOGOMONITOR25.png" class="img-fluid rounded shadow" alt="Talina">
+          </div>
+          <div class="col-lg-8 content">
+            <h3>SAKTI TEKNIK INFORMATIKA</h3>
+            <p class="fst-italic py-3">SAKTI merupakan pedoman dan identitas mahasiswa Teknik Informatika dalam berperilaku, berorganisasi, dan berkarya di lingkungan kampus dan masyarakat.</p>
+            <section id="about" class="about section">
+  <div class="container section-title text-center" data-aos="fade-up">
+    <h2>SAKTI TEKNIK INFORMATIKA</h2>
+    <p>SAKTI adalah pedoman nilai bagi mahasiswa Teknik Informatika: Solid, Aktif, Kreatif, Transformatif, dan Islami. Klik tiap poin untuk melihat maknanya.</p>
+  </div>
+
+  <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+    <div class="btn-group flex-wrap" role="group" aria-label="Nilai SAKTI" style="gap:10px;">
+      <button class="btn btn-monitor" onclick="showSakti('solid')">Solid</button>
+      <button class="btn btn-monitor" onclick="showSakti('aktif')">Aktif</button>
+      <button class="btn btn-monitor" onclick="showSakti('kreatif')">Kreatif</button>
+      <button class="btn btn-monitor" onclick="showSakti('transformatif')">Transformatif</button>
+      <button class="btn btn-monitor" onclick="showSakti('islami')">Islami</button>
+    </div>
+
+    <!-- Deskripsi SAKTI -->
+    <div id="sakti-content" class="mt-4 p-4 rounded shadow-sm bg-white" style="border-left:4px solid #0b61d3; display:none; text-align:left; max-width:800px; margin:auto; white-space:pre-wrap;"></div>
+  </div>
+</section>
+
+<script>
+  const saktiData = {
+    solid: `🔹 **Solid**
+Solid mencerminkan kebersamaan, loyalitas, dan kerja sama yang kuat antar mahasiswa Informatika.
+Menumbuhkan kepercayaan, saling mendukung, dan menjaga hubungan baik dalam belajar maupun berorganisasi.`,
+
+    aktif: `🔹 **Aktif**
+Aktif berarti terlibat penuh, berpartisipasi, dan berkontribusi dalam kegiatan akademik, organisasi, dan sosial.
+Mahasiswa aktif mampu memimpin, berdiskusi, dan mendorong perubahan positif.`,
+
+    kreatif: `🔹 **Kreatif**
+Kreatif berarti melahirkan ide baru, inovasi, dan solusi cerdas.
+Dalam Informatika, kreativitas tampak pada kemampuan merancang sistem, desain, dan teknologi yang bermanfaat.`,
+
+    transformatif: `🔹 **Transformatif**
+Transformatif menandakan semangat untuk berubah dan membawa dampak.
+Mahasiswa Informatika transformatif mampu menerapkan ilmu untuk memberi solusi nyata bagi masyarakat.`,
+
+    islami: `🔹 **Islami**
+Islami adalah fondasi moral dalam setiap tindakan. Beretika, jujur, bertanggung jawab, dan menjadikan nilai keislaman sebagai pedoman hidup dan ilmu.`
+  };
+
+  function showSakti(type) {
+    const box = document.getElementById('sakti-content');
+    if (box.style.display === 'block' && box.dataset.current === type) {
+      box.style.display = 'none';
+      box.dataset.current = '';
+      return;
+    }
+    box.innerHTML = saktiData[type];
+    box.style.display = 'block';
+    box.dataset.current = type;
+    box.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+</script>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MABIM 1 ===== -->
+    <section id="mabim1" class="mabim-section">
+      <div class="container section-title text-center">
+        <h2>MABIM 1</h2>
+        <p>Sabtu, 20 September 2025 — Rangkaian materi dan diskusi.</p>
+      </div>
+
+      <div class="container">
+        <!-- Buttons to open each materi -->
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi 1: Wahyu Memandu Ilmu</h5>
+              <p class="mb-2"><strong>Moderator:</strong> Kang Hanif<br><strong>Pemateri:</strong> Cepy Slamet</p>
+              <button class="btn btn-monitor" onclick="openMateri('m1-1','Wahyu Memandu Ilmu')">Buka Materi 1</button>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi 2: Pengantar Logika</h5>
+              <p class="mb-2"><strong>Moderator:</strong> Akhdan<br><strong>Pemateri:</strong> Kang Diaz Muhammad (GPA 3.6, UIN SGD)</p>
+              <button class="btn btn-monitor" onclick="openMateri('m1-2','Pengantar Logika')">Buka Materi 2</button>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi 3: Keinformatikaan</h5>
+              <p class="mb-2"><strong>Moderator:</strong> Kang Faraby<br><strong>Pemateri:</strong> M. Fatih Maulana</p>
+              <button class="btn btn-monitor" onclick="openMateri('m1-3','Keinformatikaan')">Buka Materi 3</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Materi contents (hidden initially) -->
+        <div id="m1-1" class="materi-content">
+          <strong>MABIM 1 — Materi 1: Wahyu Memandu Ilmu</strong>
+
+          Moderator: Kang Hanif
+          Pemateri: Cepy Slamet
+
+          Pokok Isi:
+          Wahyu menjadi dasar arah ilmu. Ilmu bukan hanya hasil akal, tapi juga petunjuk dari Allah.
+          Fakultas non-dirasah (saintek, informatika, teknik) juga harus dipandu oleh nilai wahyu agar tidak kering dari makna spiritual.
+
+          Relevansi ilmu informatika:
+          Mempelajari sistem efisien, logis, dan terukur.
+          Dalam Islam, efisiensi dan ketepatan juga nilai yang diajarkan (contoh: prinsip keseimbangan dan keteraturan dalam ciptaan Allah).
+
+          Makna SKS (Sistem Kredit Semester):
+          Fondasi kesuksesan mahasiswa bukan sekadar nilai, tapi paradigma SKS:
+          1. Syukur: Menghargai nikmat ilmu dan kesempatan belajar.
+          2. Komitmen: Konsisten menjalani proses belajar.
+          3. Sabar: Mengendalikan diri saat gagal atau tertinggal.
+
+          Dalil pendukung:
+          لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ
+          “Jika kamu bersyukur, pasti Aku tambah nikmatmu.”
+
+          Tiga Dimensi Syukur (Imam al-Ghazali):
+          1. Ilmu: Menyadari semua berasal dari Allah.
+          2. Hal (perasaan): Merasakan gembira atas nikmat itu.
+          3. Amal: Menggunakan nikmat sesuai kehendak Allah.
+
+          Komitmen: Sifat Tashdiq — yakin dan berpegang pada kebenaran.
+
+          Nilai penting:
+          Sabar dalam proses.
+          EQ (kecerdasan emosional) memberi kontribusi 85–90% pada kesuksesan, IQ hanya 10–15%.
+          Dunia bukan hanya butuh orang pintar, tapi juga yang bisa merasakan dan berempati.
+
+          Kata Kunci:
+          1. Pengendalian diri
+          2. Ketekunan
+          3. Pantang menyerah
+          4. Motivasi
+        </div>
+
+        <div id="m1-2" class="materi-content">
+          <strong>MABIM 1 — Materi 2: Pengantar Logika</strong>
+
+          Moderator: Akhdan
+          Pemateri: Kang Diaz Muhammad
+
+          Isi Pokok:
+          Logika adalah cara berpikir benar dan sistematis.
+          Tujuannya membantu membedakan argumen yang valid dan tidak valid.
+
+          Jenis Kesalahan Berpikir (Fallacy):
+          1. Ad hominem: Menyerang pribadi, bukan argumen.
+          2. Bandwagon: Mengikuti karena mayoritas percaya.
+          3. False cause: Menganggap dua hal berhubungan padahal tidak.
+          4. Generalisasi berlebihan: Menarik kesimpulan dari sampel kecil.
+
+          Langkah Berpikir Sistematis:
+          1. Dengarkan
+          2. Dengarkan ulang dengan analisis
+          3. Analisis data dan argumen
+          4. Pikirkan kesimpulan dengan logis
+
+          Penerapan:
+          Logika penting dalam diskusi, pemrograman, dan riset.
+          Mahasiswa harus melatih berpikir deduktif dan induktif.
+
+          Jenis Penalaran:
+          Deduktif: Dari umum ke khusus.
+          Induktif: Dari khusus ke umum.
+        </div>
+
+        <div id="m1-3" class="materi-content">
+          <strong>MABIM 1 — Materi 3: Keinformatikaan</strong>
+
+          Moderator: Kang Faraby
+          Pemateri: M. Fatih Maulana
+
+          Informatika dan cabang keilmuannya:
+          1. Software Engineering: Merancang, mengelola, dan memelihara aplikasi.
+          2. AI & Data Science: Mengolah data menjadi informasi cerdas untuk mendukung pengambilan keputusan.
+          3. Blockchain & Cryptography: Teknologi desentralisasi untuk keamanan data dan transaksi digital.
+          4. Web Development: Membangun website interaktif.
+
+          Tantangan Mahasiswa Baru:
+          - Adaptasi dengan dunia kampus.
+            - Banyak pilihan arah belajar.
+            - Tekanan sosial dan ekspektasi.
+            - Distraksi, belum punya tujuan jelas.
+
+          Analogi:
+          Tanpa tujuan seperti kapal tanpa arah.
+          Solusi:
+          Tentukan tujuan dan kompas hidup. Sederhanakan langkah. Fokus pada satu hal dulu.
+
+          Ikigai dan SMART Goals:
+          Konsep Ikigai (Jepang): Temukan titik temu antara:
+          1. Apa yang kamu cintai.
+          2. Apa yang kamu kuasai.
+          3. Apa yang dibutuhkan dunia.
+          4. Apa yang bisa menghasilkan nilai (uang/pengaruh).
+
+          Isi Pokok:
+          Ikigai adalah makna hidup. Titik tengah dari passion, mission, profession, dan vocation.
+          → "Cari irisan tengah."
+
+          Langkah Menemukan Ikigai:
+          1. Apa yang kamu cintai.
+          2. Apa yang kamu kuasai.
+          3. Apa yang dunia butuhkan.
+          4. Apa yang bisa kamu dapatkan penghasilan dari situ.
+
+          SMART Goals:
+          Specific: Tujuan jelas.
+          Measurable: Bisa diukur hasilnya.
+          Achievable: Realistis.
+          Relevant: Sesuai kebutuhan.
+          Time-bound: Ada batas waktu.
+
+          Fokus:
+          Pantau progress setiap bulan agar konsisten.
+          Proyek Praktek, Membuat Website
+
+          Langkah-langkah:
+          Week 1- Dasar Struktur & Tampilan (HTML + CSS)
+          1. Pahami struktur halaman dasar HTML.
+          2. Pelajari warna, font, dan layout di CSS.
+          Latihan: Buat halaman profil sederhana.
+
+          Week 2- Interaktivitas (JavaScript)
+          1. Pelajari dasar JavaScript.
+          2. Manipulasi elemen dengan DOM.
+          3. Tambahkan fitur interaktif sederhana (misal: tombol, form).
+
+          Week 3- Mini Project
+          1. Gabungkan semua hasil latihan.
+          2. Buat website sederhana lengkap (HTML + CSS + JS).
+          3. Tambah form atau fitur sederhana.
+
+          Publikasi:
+          - Upload di GitHub Pages.
+          - Tampilkan hasil dan refleksikan proses belajarnya.
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- ===== MABIM 2 ===== -->
+    <section id="mabim2" class="mabim-section" style="background:#f5fbff;">
+      <div class="container section-title text-center">
+        <h2>MABIM 2</h2>
+        <p>Sabtu, 27 September 2025 — Lanjutan materi dan advokasi.</p>
+      </div>
+
+      <div class="container">
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h5>Materi 1: Alur dan Advokasi</h5>
+              <p class="mb-2"><strong>Moderator:</strong> Zaki Syabani Gibran<br><strong>Pemateri:</strong> Ansyarullah (Ketua SEMA FST)</p>
+              <button class="btn btn-monitor" onclick="openMateri('m2-1','Alur dan Advokasi')">Buka Materi 1</button>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h5>Materi 2: Manajemen Waktu</h5>
+              <p class="mb-2"><strong>Moderator:</strong> Salwa<br><strong>Pemateri:</strong> Dr. Imam Sapari Millah</p>
+              <button class="btn btn-monitor" onclick="openMateri('m2-2','Manajemen Waktu')">Buka Materi 2</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="m2-1" class="materi-content">
+          <strong>MABIM 2 — Materi 1: Alur dan Advokasi</strong>
+
+          Moderator: Zaki Syabani Gibran
+          Pemateri: Ansyarullah (Ketua SEMA FST)
+
+          Pengertian Advokasi:
+          Advokasi adalah upaya pembelaan, dukungan, atau pemberian rekomendasi agar suara dan aspirasi mahasiswa didengar oleh publik dan pembuat kebijakan.
+
+          Tujuan:
+          - Menyalurkan aspirasi mahasiswa.
+          - Membela kepentingan mahasiswa akademik & non-akademik.
+          - Menjadi jembatan komunikasi dengan pihak kampus.
+
+          Peran Advokasi:
+          - Fungsi vital ormawa: saluran formal aspirasi.
+          - Menjadi watchdog (pengawas) kebijakan kampus.
+          - Mengubah isu personal menjadi kolektif.
+          - Menciptakan iklim akademik sehat.
+
+          Landasan Advokasi (referensi regulasi):
+          1. SK Dirjen Pendis No. 3814 Tahun 2024
+          2. Juknis Kode Etik dan Tata Mahasiswa UIN SGD
+          3. Peraturan Senat Mahasiswa FST (Persema-FST)
+          4. Ketetapan SEMA-FST tentang Pedoman Advokasi
+          5. AD/ART HIMATIF 2025
+
+          Hak dan Kewajiban:
+          - Mahasiswa berhak menyampaikan pendapat, bertanggung jawab menjaga etika.
+          - Saluran advokasi: internal mahasiswa → jurusan → fakultas → birokrat kampus.
+
+          Struktur & Alur:
+          - DEMA: pelaksana eksekutif (program advokasi).
+          - SEMA: lembaga legislatif (pembuat kebijakan & pengawas).
+          - HMJ: pelaksana teknis di tingkat jurusan.
+          - Hubungan kerja: koordinasi DEMA-SEMA-HMJ.
+
+          Sikap Kritis Mahasiswa:
+          Unsur penting: identitas, landasan intelektual, tujuan perbaikan, kesadaran diri, implikasi di HIMATIF.
+          Etika Penyampaian Pendapat:
+          1. Berdasarkan data & fakta.
+          2. Lewat saluran resmi.
+          3. Bahasa akademik.
+          4. Menjaga kesopanan & profesionalisme.
+          5. Konsolidasi agar aspirasi mewakili mayoritas.
+        </div>
+
+        <div id="m2-2" class="materi-content">
+          <strong>MABIM 2 — Materi 2: Manajemen Waktu</strong>
+
+          Moderator: Salwa
+          Pemateri: Dr. Imam Sapari Millah
+
+          Pengertian:
+          Manajemen waktu adalah kemampuan merencanakan, mengatur, dan mengendalikan waktu secara efektif dan efisien agar tujuan tercapai.
+
+          Tujuan:
+          - Meningkatkan produktivitas.
+          - Menghindari stres akumulasi tugas.
+          - Mencapai keseimbangan antara akademik dan kehidupan pribadi.
+
+          Prinsip:
+          1. Prioritas: tentukan prioritas kegiatan.
+          2. Batas waktu: set setiap tugas deadline jelas.
+          3. Hindari prokrastinasi: jangan menunda pekerjaan kecil.
+
+          Rencana Manajemen Waktu:
+          - Buat rencana semester.
+          - Sesuaikan kemampuan & kondisi kampus.
+          - Atur waktu belajar, organisasi, istirahat, ibadah.
+
+          Strategi Pengelolaan Stres:
+          1. Atur waktu dengan baik.
+          2. Istirahat cukup.
+          3. Olahraga & relaksasi.
+          4. Kelola prioritas.
+          5. Bangun dukungan sosial (teman, mentor).
+
+          Alat Pengukur & Evaluasi:
+          - Bandingkan rencana vs realitas.
+          - Identifikasi hambatan.
+          - Ukur produktivitas.
+          - Lakukan refleksi & perbaikan rutin.
+
+          Kesimpulan:
+          Disiplin waktu, prioritas, evaluasi terus menerus kunci manajemen waktu.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MABIM 3 ===== -->
+    <section id="mabim3" class="mabim-section">
+      <div class="container section-title text-center">
+        <h2>MABIM 3</h2>
+        <p>Sabtu, 4 Oktober 2025 — Komunikasi, kepemimpinan, dan CRAWL.</p>
+      </div>
+
+      <div class="container">
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi: Retorika dan Komunikasi</h5>
+              <p class="mb-2"><strong>Pemateri:</strong> Mahran Rangga Basyus</p>
+              <button class="btn btn-monitor" onclick="openMateri('m3-1','Retorika dan Komunikasi')">Buka Materi</button>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi: KMO (Kepemimpinan Manajemen Organisasi)</h5>
+              <p class="mb-2"><strong>Pemateri:</strong> Faizal Ramadhan, S.T</p>
+              <button class="btn btn-monitor" onclick="openMateri('m3-2','KMO (Kepemimpinan Manajemen Organisasi)')">Buka Materi</button>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card p-3">
+              <h5>Materi 4: CRAWL</h5>
+              <p class="mb-2"><strong>Pemateri:</strong> Kang Aris Ghifari dkk</p>
+              <button class="btn btn-monitor" onclick="openMateri('m3-3','CRAWL (Sayap Kiri Informatika)')">Buka Materi</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="m3-1" class="materi-content">
+          <strong>MABIM 3 — Retorika dan Komunikasi</strong>
+
+          Pemateri: Mahran Rangga Basyus
+
+          Pengertian Komunikasi:
+          Komunikasi adalah proses penyampaian pesan, pertukaran informasi, dan pemahaman antara dua pihak atau lebih dengan tujuan tertentu.
+
+          Etika dalam Komunikasi:
+          1. Memperhatikan waktu — berbicara di waktu yang tepat.
+          2. Mendengarkan dengan cermat — fokus dan tidak memotong pembicaraan.
+          3. Menghindari hoaks — menyampaikan informasi yang benar dan dapat dipertanggungjawabkan.
+
+          Pengertian Retorika:
+          Retorika adalah praktik penggunaan bahasa untuk mempengaruhi atau meyakinkan orang lain — seni berbicara di depan umum.
+
+          Fungsi Retorika:
+          - Menyampaikan informasi.
+          - Meyakinkan & mempengaruhi pendengar.
+          - Menegakkan kebenaran & keadilan.
+
+          Komponen Utama (Aristoteles):
+          1. Ethos → Kredibilitas pembicara.
+          2. Pathos → Emosi audiens.
+          3. Logos → Logika & argumentasi.
+
+          Teknik Dasar Public Speaking:
+          a) Kenali audiens.
+          b) Persiapkan materi.
+          c) Kuasai bahasa tubuh.
+          d) Atur vokal.
+          e) Pembukaan & penutupan efektif.
+          f) Libatkan audiens.
+
+          Metode Penyampaian:
+          - Impromptu
+          - Manuskrip
+          - Menghafal
+          - Ekstemporan
+
+          Tokoh Retorika Indonesia:
+          - Najwa Shihab — tegas & analitis.
+          - Andy F. Noya — komunikatif & empatik.
+        </div>
+
+        <div id="m3-2" class="materi-content">
+          <strong>MABIM 3 — KMO (Kepemimpinan Manajemen Organisasi)</strong>
+
+          Pemateri: Faizal Ramadhan, S.T
+
+          Pengertian:
+          Kepemimpinan: kemampuan memengaruhi & mengarahkan orang lain.
+          Manajemen: proses mengelola & mengatur sumber daya.
+          Organisasi: kelompok yang bekerja bersama mencapai tujuan.
+
+          Nilai-nilai Kepemimpinan:
+          1. Honest — jujur.
+          2. Trustable — dapat dipercaya.
+          3. Communicative — menyampaikan arahan jelas.
+          4. Smart — mengambil keputusan tepat.
+
+          Gaya Kepemimpinan (aspek yang harus diseimbangkan):
+          a) Optic vs Authentic
+          b) Intention vs Impact
+          c) Control vs Empowerment
+          d) Stability vs Change
+          e) Firmness vs Empathy
+          f) Decisiveness vs Listening
+        </div>
+
+        <div id="m3-3" class="materi-content">
+          <strong>MABIM 3 — Materi 4: CRAWL (Sayap Kiri Informatika)</strong>
+
+          Pemateri: Kang Aris Ghifari (Jenderal), Kang Abey (Koordinator), Kang Ujang (Sekretaris)
+
+          CRAWL:
+          - Wadah warga IF untuk mengembangkan solidaritas dan menanamkan keberanian.
+          - Filosofi nama: Kurawa [ ] → simbol penjagaan dan keterikatan.
+          - Logo: gagak, melambangkan keberanian menghadapi risiko.
+          - Lawannya: malapetaka — burung berani menghadapi bahaya.
+
+          Struktur:
+          1. Jenderal
+          2. Sekretaris
+          3. Koordinator → Sekjen → Jenderal
+
+          Slogan:
+          “NGAHIJI SANEKAH JADI BUKTI”
+          (Menyatu dalam tindakan, bukan hanya ucapan).
+
+          Makna:
+          - Menumbuhkan solidaritas.
+          - Melatih keberanian dan loyalitas.
+          - Media pergerakan & pengorganisasian di lingkungan Informatika.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Rest of template sections (Skills, Resume, Portfolio, Services, Contact, Footer)
+         We keep structure/content from original MyResume template but minimalized where appropriate.
+         (These sections are kept consistent with template you had) ===== -->
+
+    <!-- Skills (kept original) -->
+    <section id="skills" class="skills section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Skills</h2>
+        <p>Berikut adalah kemampuan yang dikembangkan selama proses pembelajaran dan pengalaman </p>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="skills-content skills-animation">
+          <div class="progress">
+            <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
+            <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" style="width: 100%;"></div></div>
+          </div>
+          <div class="progress">
+            <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
+            <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" style="width: 90%;"></div></div>
+          </div>
+          <div class="progress">
+            <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
+            <div class="progress-bar-wrap"><div class="progress-bar" role="progressbar" style="width: 75%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume" class="resume section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About Me</h2>
+        <p></p>
+      </div>
+      <div class="container">
+        <!-- Minimal resume content kept from template -->
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Summary</h3>
+            <div class="resume-item pb-0">
+              <h4>Talina Nurul Azizah</h4>
+              <p><em>Mahasiswa Teknik Informatika, antusias belajar, berinovasi, dan berkontribusi pada komunitas kampus.</em></p>
+              <ul>
+                <li>Bandung, Jawa Barat</li>
+                <li>+62 815-2700-1761</li>
+                <li>talinazzh@gmail.com</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio (kept original minimal) -->
+    <section id="portfolio" class="portfolio section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Portfolio</h2>
+        <p>Dokumentasi kegiatan dan proyek MONITOR 2K25.</p>
+      </div>
+    </section>
+
+    <!-- Services (kept original minimal) -->
+    <section id="services" class="services section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Kontribusi dan layanan di bidang teknologi serta pengembangan komunitas Informatika.</p>
+      </div>
+    </section>
+
+    <!-- Contact (kept original) -->
+    <section id="contact" class="contact section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Hubungi kami untuk informasi lebih lanjut atau kerjasama.</p>
+      </div>
+
+      <div class="container" data-aos="fade" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-4">
+            <div class="info-item d-flex">
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Alamat</h3>
+                <p>Universitas Teknik Informatika</p>
+              </div>
+            </div>
+            <div class="info-item d-flex mt-3">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Telepon</h3>
+                <p>+62 815-2700-1761</p>
+              </div>
+            </div>
+            <div class="info-item d-flex mt-3">
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email</h3>
+                <p>talinaazizah@example.com</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <form action="#" method="post" class="php-email-form">
+              <div class="row gy-4">
+                <div class="col-md-6"><input type="text" name="name" class="form-control" placeholder="Your Name" required></div>
+                <div class="col-md-6"><input type="email" name="email" class="form-control" placeholder="Your Email" required></div>
+                <div class="col-md-12"><input type="text" name="subject" class="form-control" placeholder="Subject" required></div>
+                <div class="col-md-12"><textarea name="message" rows="6" class="form-control" placeholder="Message" required></textarea></div>
+                <div class="col-md-12 text-center"><button type="submit" class="btn btn-monitor">Send Message</button></div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <h3 class="sitename">Talina Nurul Azizah</h3>
+      <p>Mahasiswa Teknik Informatika '25 | MONITOR 2K25</p>
+      <div class="social-links d-flex justify-content-center mt-3">
+        <a href="#" style="color:#ffd60a;"><i class="bi bi-instagram"></i></a>
+        <a href="#" style="color:#ffd60a; margin-left:10px;"><i class="bi bi-envelope"></i></a>
+        <a href="#" style="color:#ffd60a; margin-left:10px;"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="copyright mt-3">&copy; 2025 MONITOR 2K25. All Rights Reserved</div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- (AOS, Glightbox, Swiper kept if present in assets for animations/lightbox) -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    // Optional: initialize AOS if included
+    if (window.AOS) AOS.init();
+  </script>
+</body>
+</html>

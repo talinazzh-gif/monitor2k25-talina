@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MONITOR 2025 - Talina Nurul Azizah</title>
+  <meta name="description" content="MONITOR 2K25 - SAKTI Informatika" />
+  <meta name="keywords" content="MONITOR, MABIM, Informatika, SAKTI"/>
+
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    :root{
+      --blue-900:#003566;
+      --blue-600:#0b61d3;
+      --accent:#ffd60a;
+      --muted:#6b7a8a;
+      --card-border:#e6eefc;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      color:#111;
+      background:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* layout */
+    .layout{ display:flex; min-height:100vh; overflow-x:hidden; }
+    /* sidebar */
+    .sidebar{
+      width:240px;
+      min-width:200px;
+      background:linear-gradient(180deg,var(--blue-900),var(--blue-600));
+      color:#fff;
+      padding:22px 14px;
+      position:sticky;
+      top:0;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .brand{ text-align:center; }
+    .brand img{ max-width:120px; display:block; margin:0 auto 8px; opacity:0.95; }
+    .brand h4{ margin:0; font-size:16px; font-weight:700; letter-spacing:0.4px; }
+    .nav-title{ font-size:12px; text-transform:uppercase; opacity:0.95; margin:6px 6px; font-weight:700; }
+    .nav-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+    .nav-list button{
+      background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.08);
+      padding:10px 12px; text-align:left; border-radius:8px; cursor:pointer; font-weight:600;
+      display:flex; gap:10px; align-items:center; transition:all .18s ease;
+    }
+    .nav-list button:hover{ background:rgba(255,255,255,0.06); transform:translateX(4px); }
+    .nav-list button.active{ background:var(--accent); color:var(--blue-900); border-color:transparent; }
+    .sidebar .note{ margin-top:auto; font-size:13px; opacity:0.9; text-align:center; }
+
+    /* main content */
+    .content{ flex:1; min-width:0; }
+
+    section{ padding:64px 20px; position:relative; }
+
+    /* HERO */
+    .hero{
+      height:100vh;
+      display:flex; align-items:center; justify-content:center; text-align:center; position:relative;
+      background-color:var(--blue-900);
+      background-image: url('assets/img/LOGOMONITOR25.png');
+      background-repeat:no-repeat; background-position:center 40%; background-size:contain;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:''; position:absolute; inset:0;
+      background:rgba(0,10,30,0.45);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .hero-inner{ position:relative; z-index:2; color:#fff; max-width:980px; padding:18px; }
+    .hero h1{ font-size:46px; margin:0 0 8px; font-weight:700; letter-spacing:1px; }
+    .hero p{ margin:0 0 18px; color:var(--accent); font-weight:600; font-size:18px; }
+
+    /* section wrapper card */
+    .section-wrap{ max-width:1100px; margin:0 auto; background:rgba(255,255,255,0.95); padding:26px; border-radius:12px; box-shadow:0 8px 30px rgba(3,27,76,0.06); }
+
+    .section-title h2{ color:var(--blue-600); margin:0 0 8px; font-weight:700; }
+    .section-title p{ margin:0 0 14px; color:var(--muted); }
+
+    /* SAKTI layout */
+    .sakti-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:12px; }
+    .sakti-card{ background:linear-gradient(180deg,#fff,#fbfdff); border:1px solid var(--card-border); padding:14px; border-radius:10px; box-shadow:0 6px 20px rgba(3,27,76,0.04); }
+    .sakti-card h4{ margin:0 0 8px; color:var(--blue-900); font-weight:700; }
+    .sakti-desc{ display:none; margin-top:12px; padding:12px; background:#f4fbff; border-left:4px solid var(--blue-600); border-radius:8px; white-space:pre-wrap; color:#133; }
+
+    /* MABIM */
+    .cards-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+    .card-mini{ background:#fff; border:1px solid var(--card-border); border-radius:10px; padding:14px; }
+    .materi-content{ display:none; margin-top:12px; padding:14px; background:#fbfdff; border-left:4px solid var(--blue-600); border-radius:6px; white-space:pre-wrap; color:#123; }
+
+    /* Closing */
+    .closing{ background:linear-gradient(180deg, rgba(11,97,211,0.06), rgba(255,214,102,0.03)); }
+    .closing .section-wrap{ background:linear-gradient(180deg, rgba(11,97,211,0.95), rgba(255,214,102,0.95)); color:#fff; }
+
+    /* Contact icons */
+    .socials{ display:flex; gap:18px; justify-content:center; align-items:center; margin-top:12px; }
+    .socials a{ display:inline-flex; align-items:center; justify-content:center; width:56px; height:56px; border-radius:12px; background:#0b61d3; color:#fff; text-decoration:none; font-size:20px; transition:transform .15s ease, box-shadow .15s ease; }
+    .socials a:hover{ transform:translateY(-4px); box-shadow:0 10px 30px rgba(11,97,211,0.18); }
+    .socials a .label{ display:none; }
+
+    /* footer */
+    footer{ padding:28px 18px; text-align:center; background:#001d3d; color:#fff; }
+    footer .sitename{ font-weight:700; margin-bottom:6px; }
+
+    /* responsive */
+    @media(max-width:992px){
+      .sidebar{ position:fixed; left:0; top:0; bottom:0; z-index:40; transform:translateX(0); width:200px; }
+      .layout{ padding-left:200px; }
+      .sakti-grid{ grid-template-columns:1fr; }
+    }
+    @media(max-width:640px){
+      .sidebar{ display:none; }
+      .layout{ padding-left:0; }
+      .hero h1{ font-size:32px; }
+      section{ padding:36px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Sidebar navigasi">
+      <div class="brand">
+        <img src="assets/img/LOGOMONITOR25.png" alt="Logo MONITOR" />
+        <h4>MONITOR 2025</h4>
+        <div style="font-size:12px;opacity:0.95;margin-top:6px">by. Talina Nurul Azizah</div>
+      </div>
+
+      <div class="nav-block">
+        <div class="nav-title">SAKTI</div>
+        <ul class="nav-list" id="sakti-nav">
+          <li><button data-target="sakti-solid">Solid</button></li>
+          <li><button data-target="sakti-aktif">Aktif</button></li>
+          <li><button data-target="sakti-kreatif">Kreatif</button></li>
+          <li><button data-target="sakti-trans">Transformatif</button></li>
+          <li><button data-target="sakti-islami">Islami</button></li>
+        </ul>
+      </div>
+
+      <div class="nav-block">
+        <div class="nav-title">MABIM</div>
+        <ul class="nav-list" id="mabim-nav">
+          <li><button data-target="mabim1">MABIM 1</button></li>
+          <li><button data-target="mabim2">MABIM 2</button></li>
+          <li><button data-target="mabim3">MABIM 3</button></li>
+        </ul>
+      </div>
+
+      <div class="nav-block">
+        <div class="nav-title">&nbsp;</div>
+        <ul class="nav-list">
+          <li><button data-target="closing">Penutup</button></li>
+          <li><button data-target="about">About Me</button></li>
+        </ul>
+      </div>
+
+      <div class="note">HIMATIF • Teknik Informatika • 2025</div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content" role="main">
+
+      <!-- HERO -->
+      <section id="hero" class="hero" aria-label="Hero MONITOR 2025">
+        <div class="hero-inner">
+          <h1>MONITOR 2025</h1>
+          <p>by. Talina Nurul Azizah</p>
+        </div>
+      </section>
+
+      <!-- CLOSING (penutup ringkasan sebelum About) -->
+      <section id="closing" class="closing">
+        <div class="section-wrap text-center">
+          <div class="section-title">
+            <h2>Penutup</h2>
+            <p>Kesimpulan kegiatan MONITOR 2025</p>
+          </div>
+
+          <div style="margin-top:12px; white-space:pre-wrap; font-size:16px; color:#fff; max-width:900px; margin-left:auto; margin-right:auto;">
+MONITOR 2025 bukan sekadar kegiatan orientasi, melainkan perjalanan pembentukan karakter mahasiswa baru Teknik Informatika.
+Melalui setiap materi, diskusi, dan pengalaman, para peserta diajak memahami nilai-nilai SAKTI — menjadi insan yang Solid dalam kebersamaan, Aktif dalam kontribusi, Kreatif dalam inovasi, Transformatif dalam membawa perubahan, dan Islami dalam setiap langkahnya.
+
+Dengan semangat ini, MONITOR 2025 diharapkan menjadi fondasi awal terbentuknya generasi Informatika yang tangguh, adaptif, dan berjiwa pemimpin — siap berkarya dan berkontribusi bagi masyarakat dengan nilai-nilai luhur yang berakar pada wahyu dan ilmu.
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT (SAKTI section & about me) -->
+      <section id="about" class="about">
+        <div class="section-wrap">
+          <div class="section-title text-center">
+            <h2>SAKTI - Nilai Dasar Informatika</h2>
+            <p>Klik tombol SAKTI di sidebar untuk membuka penjabaran tiap poin.</p>
+          </div>
+
+          <div class="sakti-grid">
+            <div class="sakti-card">
+              <h4>Solid</h4>
+              <div id="sakti-solid" class="sakti-desc">
+<strong>SOLID</strong>
+
+Solid mencerminkan kebersamaan, loyalitas, dan kerja sama yang kuat antar anggota komunitas Informatika. Dalam praktik:
+- Membangun kultur saling membantu dalam studi dan organisasi.
+- Menerapkan pembagian tugas yang adil dan keterbukaan komunikasi.
+- Menjaga integritas tim saat menghadapi masalah akademik atau organisasi.
+
+Solid berarti menyelesaikan tugas bersama, menjaga jaringan alumni, dan saling menjadi sandaran saat tantangan datang.
+              </div>
+            </div>
+
+            <div class="sakti-card">
+              <h4>Aktif</h4>
+              <div id="sakti-aktif" class="sakti-desc">
+<strong>AKTIF</strong>
+
+Aktif menunjukkan sikap partisipatif: hadir, inisiatif, dan berkontribusi dalam kegiatan akademik dan non-akademik. Bentuknya:
+- Berpartisipasi dalam diskusi kelas, organisasi, dan pengabdian masyarakat.
+- Mendorong diri untuk mengambil peran (panitia, pengurus, volunteer).
+- Konsisten hadir dalam proses pembelajaran dan pengembangan skill.
+
+Aktif juga berarti berjejaring, membangun relasi profesional, dan menjadi agen perubahan di lingkungan kampus.
+              </div>
+            </div>
+
+            <div class="sakti-card">
+              <h4>Kreatif</h4>
+              <div id="sakti-kreatif" class="sakti-desc">
+<strong>KREATIF</strong>
+
+Kreatif mendorong lahirnya solusi baru dan pendekatan inovatif terhadap masalah teknologi maupun sosial. Dalam konteks informatika:
+- Menghasilkan ide produk/digital yang orisinal.
+- Bereksperimen dengan teknologi baru, prototyping, dan iterasi cepat.
+- Mengembangkan portofolio proyek yang menunjukkan kemampuan berpikir desain dan teknis.
+
+Kreatif juga menumbuhkan budaya pembelajaran seumur hidup dan keberanian mencoba hal baru.
+              </div>
+            </div>
+
+            <div class="sakti-card">
+              <h4>Transformatif</h4>
+              <div id="sakti-trans" class="sakti-desc">
+<strong>TRANSFORMATIF</strong>
+
+Transformatif berfokus pada perubahan yang berdampak; bukan hanya retorika, tetapi aksi nyata:
+- Menerapkan solusi teknis untuk masalah nyata di lingkungan kampus dan masyarakat.
+- Menginisiasi proyek yang meningkatkan kualitas hidup (mis. sistem informasi, edukasi digital).
+- Menumbuhkan kemampuan adaptasi terhadap perubahan teknologi dan sosial.
+
+Seorang transformatif adalah agen perubahan yang membawa hasil terukur dan berdampak positif.
+              </div>
+            </div>
+
+            <div class="sakti-card">
+              <h4>Islami</h4>
+              <div id="sakti-islami" class="sakti-desc">
+<strong>ISLAMI</strong>
+
+Islami menegaskan nilai-nilai etika dan spiritual sebagai landasan beraktivitas:
+- Menjaga amanah, jujur, dan berakhlak dalam bekerja dan berorganisasi.
+- Memadukan ilmu dan nilai-nilai wahyu dalam pengambilan keputusan.
+- Mengedepankan kepedulian sosial, inklusivitas, dan tanggung jawab moral.
+
+Nilai ini mengingatkan bahwa ilmu yang bermanfaat harus disertai integritas dan tujuan kebaikan.
+              </div>
+            </div>
+          </div>
+
+          <!-- About Me (singkat) -->
+          <div style="margin-top:22px; border-top:1px dashed #e6eefc; padding-top:18px;">
+            <h3>About Me</h3>
+            <p>Talina Nurul Azizah — Mahasiswa Teknik Informatika '25. Antusias belajar, berinovasi, dan berkontribusi pada komunitas kampus.</p>
+            <ul style="color:var(--muted);">
+              <li>Bandung, Jawa Barat</li>
+              <li>+62 815-2700-1761</li>
+              <li>talinazzh@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MABIM 1 -->
+      <section id="mabim1" class="mabim-section">
+        <div class="section-wrap">
+          <div class="section-title text-center">
+            <h2>MABIM 1</h2>
+            <p>Sabtu, 20 September 2025 — Rangkaian materi dan diskusi.</p>
+          </div>
+
+          <div class="cards-row" style="margin-top:16px;">
+            <div class="card-mini">
+              <h5>Materi 1: Wahyu Memandu Ilmu</h5>
+              <p style="margin:6px 0 10px;color:#444"><strong>Moderator:</strong> Kang Hanif • <strong>Pemateri:</strong> Cepy Slamet</p>
+              <button class="btn" style="background:var(--blue-600);color:#fff;border-radius:8px;padding:8px 12px;border:none" onclick="openMateriNoAlert('m1-1')">Buka Materi</button>
+              <div id="m1-1" class="materi-content">
+Wahyu menjadi dasar arah ilmu. Ilmu bukan hanya hasil akal, tapi juga petunjuk dari Allah.
+Fakultas non-dirasah (saintek, informatika, teknik) juga harus dipandu oleh nilai wahyu agar tidak kering dari makna spiritual.
+
+Relevansi ilmu informatika:
+Mempelajari sistem efisien, logis, dan terukur.
+Dalam Islam, efisiensi dan ketepatan juga nilai yang diajarkan (contoh: prinsip keseimbangan dan keteraturan dalam ciptaan Allah).
+
+Makna SKS (Sistem Kredit Semester):
+1. Syukur: Menghargai nikmat ilmu dan kesempatan belajar.
+2. Komitmen: Konsisten menjalani proses belajar.
+3. Sabar: Mengendalikan diri saat gagal atau tertinggal.
+
+Dalil pendukung:
+لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ
+“Jika kamu bersyukur, pasti Aku tambah nikmatmu.”
+
+Tiga Dimensi Syukur (Imam al-Ghazali):
+1. Ilmu: Menyadari semua berasal dari Allah.
+2. Hal (perasaan): Merasakan gembira atas nikmat itu.
+3. Amal: Menggunakan nikmat sesuai kehendak Allah.
+              </div>
+            </div>
+
+            <div class="card-mini">
+              <h5>Materi 2: Pengantar Logika</h5>
+              <p style="margin:6px 0 10px;color:#444"><strong>Moderator:</strong> Akhdan • <strong>Pemateri:</strong> Kang Diaz Muhammad</p>
+              <button class="btn" style="background:var(--blue-600);color:#fff;border-radius:8px;padding:8px 12px;border:none" onclick="openMateriNoAlert('m1-2')">Buka Materi</button>
+              <div id="m1-2" class="materi-content">
+Logika adalah cara berpikir benar dan sistematis.
+Tujuannya membantu membedakan argumen yang valid dan tidak valid.
+
+Jenis Kesalahan Berpikir (Fallacy):
+1. Ad hominem: Menyerang pribadi, bukan argumen.
+2. Bandwagon: Mengikuti karena mayoritas percaya.
+3. False cause: Menganggap dua hal berhubungan padahal tidak.
+4. Generalisasi berlebihan: Menarik kesimpulan dari sampel kecil.
+
+Langkah Berpikir Sistematis:
+1. Dengarkan
+2. Dengarkan ulang dengan analisis
+3. Analisis data dan argumen
+4. Pikirkan kesimpulan dengan logis
+              </div>
+            </div>
+
+            <div class="card-mini">
+              <h5>Materi 3: Keinformatikaan</h5>
+              <p style="margin:6px 0 10px;color:#444"><strong>Moderator:</strong> Kang Faraby • <strong>Pemateri:</strong> M. Fatih Maulana</p>
+              <button class="btn" style="background:var(--blue-600);color:#fff;border-radius:8px;padding:8px 12px;border:none" onclick="openMateriNoAlert('m1-3')">Buka Materi</button>
+              <div id="m1-3" class="materi-content">
+Informatika dan cabang keilmuannya:
+1. Software Engineering
+2. AI & Data Science
+3. Blockchain & Cryptography
+4. Web Development
+
+Tantangan Mahasiswa Baru:
+- Adaptasi dengan dunia kampus.
+- Banyak pilihan arah belajar.
+- Tekanan sosial dan ekspektasi.
+- Distraksi, belum punya tujuan jelas.
+
+Ikigai & SMART Goals:
+Ikigai: titik temu passion, mastery, need, dan income.
+SMART: Specific, Measurable, Achievable, Relevant, Time-bound.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MABIM 2 -->
+      <section id="mabim2" class="mabim-section">
+        <div class="section-wrap">
+          <div class="section-title text-center">
+            <h2>MABIM 2</h2>
+            <p>Sabtu, 27 September 2025 — Advokasi & Manajemen Waktu.</p>
+          </div>
+
+          <div class="cards-row" style="margin-top:16px;">
+            <div class="card-mini">
+              <h5>Materi 1: Alur dan Advokasi</h5>
+              <p style="margin:6px 0 10px;color:#444"><strong>Moderator:</strong> Zaki • <strong>Pemateri:</strong> Ansyarullah</p>
+              <button class="btn" style="background:var(--blue-600);color:#fff;border-radius:8px;padding:8px 12px;border:none" onclick="openMateriNoAlert('m2-1')">Buka Materi</button>
+              <div id="m2-1" class="materi-content">
+Pengertian Advokasi:
+Advokasi adalah upaya pembelaan, dukungan, atau pemberian rekomendasi agar suara mahasiswa didengar.
+Tujuan: Menyalurkan aspirasi, membela kepentingan, menjadi jembatan komunikasi dengan kampus.
+
+Peran: ormawa sebagai saluran formal; watchdog kebijakan; mengubah isu personal jadi isu kolektif.
+
+Landasan: SK Dirjen, juknis kode etik, peraturan senat/dema/hmj, AD/ART HIMATIF 2025.
+              </div>
+            </div>
+
+            <div class="card-mini">
+              <h5>Materi 2: Manajemen Waktu</h5>
+              <p style="margin:6px 0 10px;color:#444"><strong>Moderator:</strong> Salwa • <strong>Pemateri:</strong> Dr. Imam Sapari Millah</p>
+              <button class="btn" style="background:var(--blue-600);color:#fff;border-radius:8px;padding:8px 12px;border:none" onclick="openMateriNoAlert('m2-2')">Buka Materi</button>
+              <div id="m2-2" class="materi-content">
+Manajemen waktu: merencanakan, mengatur, dan mengendalikan waktu agar tujuan tercapai.
+
+Prinsip: Prioritas, batas waktu, hindari prokrastinasi.
+
+Rencana: Buat rencana semester, atur belajar-organisasi-ibadah, evaluasi berkala.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MABIM 3 -->
+      <section id="mabim3" class="mabim-section">
+        <div class="section-wrap">
+          <div class="section-title text-center">
+            <h2>MABIM 3</h2>
+            <p>Sabtu, 4 Oktober 2025 — Retorika, KMO, dan CRAWL.</p>
+          </div>
+
+          <div class="cards-row" style="margin-top:16px;">
+            <div class="card-mini">
+              <h5>Retorika & Komunikasi</h5>
+              <p style="margin:6px 0 10px;color:#444"><strong>Pemateri:</strong> Mahran Rangga Basyus</p>
+              <button class="btn" style="background:var(--blue-600);color:#fff;border-radius:8px;padding:8px 12px;border:none" onclick="openMateriNoAlert('m3-1')">Buka Materi</button>
+              <div id="m3-1" class="materi-content">
+Retorika adalah seni berbicara di muka umum dengan Ethos, Pathos, Logos.
+Teknik: kenali audiens, persiapan, bahasa tubuh, atur vokal, pembukaan/penutupan.
+              </div>
+            </div>
+
+            <div class="card-mini">
+              <h5>KMO (Kepemimpinan)</h5>
+              <p style="margin:6px 0 10px;color:#444"><strong>Pemateri:</strong> Faizal Ramadhan, S.T</p>
+              <button class="btn" style="background:var(--blue-600);color:#fff;border-radius:8px;padding:8px 12px;border:none" onclick="openMateriNoAlert('m3-2')">Buka Materi</button>
+              <div id="m3-2" class="materi-content">
+Kepemimpinan: memengaruhi & mengarahkan. Nilai: jujur, dapat dipercaya, komunikatif, cerdas.
+Gaya memimpin: keseimbangan control & empowerment, firmness & empathy.
+              </div>
+            </div>
+
+            <div class="card-mini">
+              <h5>CRAWL (Sayap Kiri Informatika)</h5>
+              <p style="margin:6px 0 10px;color:#444"><strong>Pemateri:</strong> Kang Aris Ghifari dkk</p>
+              <button class="btn" style="background:var(--blue-600);color:#fff;border-radius:8px;padding:8px 12px;border:none" onclick="openMateriNoAlert('m3-3')">Buka Materi</button>
+              <div id="m3-3" class="materi-content">
+CRAWL: wadah solidaritas & keberanian warga IF. Struktur: Jenderal, Koordinator, Sekretaris.
+Slogan: "NGAHIJI SANEKAH JADI BUKTI"
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <div class="section-wrap text-center">
+          <div class="section-title">
+            <h2>Contact</h2>
+            <p>Hubungi kami lewat media sosial</p>
+          </div>
+
+          <div class="socials" aria-label="Media sosial">
+            <a href="https://www.instagram.com/talinazzh?igsh=MWFuemQ5c3p4N2Nqcg==" target="_blank" rel="noopener noreferrer" title="Instagram">
+              <i class="bi bi-instagram" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://wa.me/6281527001761" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@talinaazizah?_t=ZS-90qxFXdDW1Y&_r=1" target="_blank" rel="noopener noreferrer" title="TikTok">
+              <i class="bi bi-music-note-beamed" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <div style="max-width:1100px;margin:0 auto;">
+          <div class="sitename">Talina Nurul Azizah</div>
+          <div style="opacity:0.9; margin-top:6px">Mahasiswa Teknik Informatika '25 • MONITOR 2K25</div>
+          <div style="margin-top:10px; font-size:13px; opacity:0.9;">&copy; 2025 MONITOR 2K25. All Rights Reserved.</div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- JS: interactivity -->
+  <script>
+    // Smooth scroll helper
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    // Sidebar nav actions (sakti & mabim)
+    document.querySelectorAll('.sidebar .nav-list button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+        if(!target) return;
+        // mark active visual on sidebar (only for SAKTI / MABIM items)
+        document.querySelectorAll('.sidebar .nav-list button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // if target is sakti element like sakti-*
+        if(target.startsWith('sakti-')){
+          openSakti(target);
+          scrollToSection('about');
+          return;
+        }
+        // else it's a section id (mabim1, mabim2, mabim3, closing, about)
+        // close any open content blocks
+        closeAllSakti();
+        closeAllMateri();
+        scrollToSection(target);
+      });
+    });
+
+    // SAKTI: open one at a time
+    function openSakti(id){
+      closeAllSakti();
+      const el = document.getElementById(id);
+      if(el){
+        el.style.display = 'block';
+        // scroll a bit so the card is visible nicely
+        setTimeout(()=> el.scrollIntoView({behavior:'smooth', block:'center'}), 120);
+      }
+    }
+    function closeAllSakti(){
+      document.querySelectorAll('.sakti-desc').forEach(d => d.style.display = 'none');
+    }
+
+    // MABIM: open materi and auto-close others
+    function openMateriNoAlert(id){
+      closeAllMateri();
+      const el = document.getElementById(id);
+      if(el){
+        el.style.display = 'block';
+        setTimeout(()=> el.scrollIntoView({behavior:'smooth', block:'center'}), 120);
+      }
+    }
+    function closeAllMateri(){
+      document.querySelectorAll('.materi-content').forEach(d => d.style.display = 'none');
+    }
+
+    // Initialize: hide all on load
+    window.addEventListener('load', ()=>{
+      closeAllSakti();
+      closeAllMateri();
+    });
+
+    // Optional: close sakti when user clicks outside on wide screens (not required)
+    // Keep behavior simple per request.
+  </script>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
